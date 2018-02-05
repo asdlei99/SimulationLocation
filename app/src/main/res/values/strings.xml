@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">模拟定位</string>
+    <string name="location_item">确定</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="select">选择</string>
+    <string name="qipian_start">开始欺骗</string>
+    <string name="qipian_zhong">欺骗中..</string>
+
+</resources>
