@@ -32,7 +32,7 @@ public class LuckyMoneyHook {
 
     public static void hook(final XC_LoadPackage.LoadPackageParam mLpp) {
         if (WECHAT_PACKAGE_NAME.equals(mLpp.packageName)) {
-            XSharedPreferences preferences = new XSharedPreferences("com.xposed.hook", "lucky_money");
+            XSharedPreferences preferences = new XSharedPreferences("com.zhuhua.simulationlocation", "lucky_money");
             try {
                 XposedHelpers.findAndHookMethod("android.app.Application", mLpp.classLoader, "attach", Context.class, new XC_MethodHook() {
                     @Override

@@ -21,18 +21,16 @@ public class HookTest implements IXposedHookLoadPackage {
         if (!PkgConfig.packages.contains(loadPackageParam.packageName) && !PkgConfig.pkg_dingding.equals(loadPackageParam.packageName))
             return;
         XSharedPreferences preferences = new XSharedPreferences("com.zhuhua.simulationlocation", "share_location_data");
-        if (preferences.getBoolean(loadPackageParam.packageName, false)) {
-            if (PkgConfig.pkg_dingding.equals(loadPackageParam.packageName)) {
-                double latitude = Double.parseDouble(preferences.getString(Constant.Lat, "34.752600"));
-                double longitude = Double.parseDouble(preferences.getString(Constant.Lng, "113.662000"));
-                int lac = preferences.getInt(Constant.lac, -1);
-                int cid = preferences.getInt(Constant.cid, -1);
-                HookUtils.HookAndChange(loadPackageParam, latitude, longitude, lac, cid);
-            } else {
-                double latitude = Double.parseDouble(preferences.getString(Constant.Lat, "34.752600"));
-                double longitude = Double.parseDouble(preferences.getString(Constant.Lng, "113.662000"));
-                HookUtils.HookAndChange(loadPackageParam, latitude, longitude);
-            }
+        if (PkgConfig.pkg_dingding.equals(loadPackageParam.packageName)) {
+            double latitude = Double.parseDouble(preferences.getString(Constant.Lat, "34.752600"));
+            double longitude = Double.parseDouble(preferences.getString(Constant.Lng, "113.662000"));
+            int lac = preferences.getInt(Constant.lac, -1);
+            int cid = preferences.getInt(Constant.cid, -1);
+            HookUtils.HookAndChange(loadPackageParam, latitude, longitude, lac, cid);
+        } else {
+            double latitude = Double.parseDouble(preferences.getString(Constant.Lat, "34.752600"));
+            double longitude = Double.parseDouble(preferences.getString(Constant.Lng, "113.662000"));
+            HookUtils.HookAndChange(loadPackageParam, latitude, longitude);
         }
     }
 }
